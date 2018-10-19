@@ -14,7 +14,7 @@ public class ObjectActivity extends AppCompatActivity implements AlertDialog.OnC
 
     private GLSurfaceView mGLSurfaceView;
     private RelativeLayout root;
-    private final String items[] = {"三角形", "正三角形", "彩色三角形", "正方形", "圆形", "圆锥", "圆柱", "球体",
+    private final String items[] = {"三角形", "正三角形", "彩色三角形", "正方形", "圆形", "正方体", "圆锥", "圆柱", "球体",
             "带光源的球体"};
 
     @Override
@@ -88,6 +88,16 @@ public class ObjectActivity extends AppCompatActivity implements AlertDialog.OnC
                 mGLSurfaceView = new GLSurfaceView(this);
                 mGLSurfaceView.setEGLContextClientVersion(2);
                 mGLSurfaceView.setRenderer(new CircleRenderer());
+                root.addView(mGLSurfaceView, RelativeLayout.LayoutParams.MATCH_PARENT,
+                        RelativeLayout.LayoutParams.MATCH_PARENT);
+            }
+            break;
+            case 5: {
+                root.removeAllViews();
+                mGLSurfaceView = null;
+                mGLSurfaceView = new GLSurfaceView(this);
+                mGLSurfaceView.setEGLContextClientVersion(2);
+                mGLSurfaceView.setRenderer(new CubeRenderer());
                 root.addView(mGLSurfaceView, RelativeLayout.LayoutParams.MATCH_PARENT,
                         RelativeLayout.LayoutParams.MATCH_PARENT);
             }
