@@ -102,6 +102,16 @@ public class ObjectActivity extends AppCompatActivity implements AlertDialog.OnC
                         RelativeLayout.LayoutParams.MATCH_PARENT);
             }
             break;
+            case 6: {
+                root.removeAllViews();
+                mGLSurfaceView = null;
+                mGLSurfaceView = new GLSurfaceView(this);
+                mGLSurfaceView.setEGLContextClientVersion(2);
+                mGLSurfaceView.setRenderer(new ConeRenderer());
+                root.addView(mGLSurfaceView, RelativeLayout.LayoutParams.MATCH_PARENT,
+                        RelativeLayout.LayoutParams.MATCH_PARENT);
+            }
+            break;
             default:
                 break;
         }
